@@ -2,3 +2,4 @@ __pycache__
 images/*
 !images/not_found.jpeg
 logs/
+venv_win

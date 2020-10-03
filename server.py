@@ -8,10 +8,10 @@ import argparse, logging, logging.config, conf
 logging.config.dictConfig(conf.dictConfig)
 logger = logging.getLogger(__name__)
 
-camera = Camera()
+camera = Camera(video_source=0)
 camera.run()
 
-app = Flask(__name__)
+app = Flask(__name__) 
 # app.config["SECRET_KEY"] = "secret!"
 # socketio = SocketIO(app)
 
@@ -30,7 +30,7 @@ def add_header(r):
 @app.route("/")
 def entrypoint():
 	logger.debug("Requested /")
-	return render_template("index.html")
+	return render_template("stream.html")
 
 @app.route("/r")
 def capture():
